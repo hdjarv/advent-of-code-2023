@@ -1,0 +1,22 @@
+{
+  "name": "aoc-2023",
+  "version": "1.0.0",
+  "description": "My Advent of Code 2023 contributions",
+  "author": "Henrik Djärv <henrik@djarv.org>",
+  "license": "MIT",
+  "bin": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hdjarv/advent-of-code-2023.git"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^18.18.10",
+    "prettier": "^3.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
