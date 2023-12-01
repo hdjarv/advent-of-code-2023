@@ -1,6 +1,6 @@
 build
 inputs/*-test*.txt
-src/test.ts
+src/*test*.ts
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,macos,linux,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode,macos,linux,windows
