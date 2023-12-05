@@ -16,3 +16,9 @@ npm start <dayno>
 ```
 
 > Replace `<dayno>` with the day you want to run the solution for (1-25).
+
+To run with test data instead of real data, add the test data to `inputs/day-<dayno>-input-test.txt` (with two digits for `<dayno>`) and then:
+
+```shell
+npm start -- <dayno> --test
+```

@@ -7,14 +7,25 @@ if (process.argv.length < 3) {
   process.exit(1);
 }
 
+const useTestData = process.argv.length > 3 ? ["-t", "--test"].includes(process.argv[3].toLowerCase()) : false;
 const dayNo = strToNum(process.argv[2]);
 const dayModule = `day-${dayNo < 10 ? `0${dayNo}` : dayNo}`;
-const inputFileCandidates = [
-  join(__dirname, "inputs", dayModule + "-input-test.txt"),
-  join(__dirname, "..", "inputs", dayModule + "-input-test.txt"),
-  join(__dirname, "inputs", dayModule + "-input.txt"),
-  join(__dirname, "..", "inputs", dayModule + "-input.txt"),
-];
+
+// multiple possible input files to support running directly from TS (with ts-node) and from built JS
+let inputFileCandidates: string[] = [];
+
+if (useTestData) {
+  console.log(" *** Using test data ***\n");
+  inputFileCandidates = [
+    join(__dirname, "inputs", dayModule + "-input-test.txt"),
+    join(__dirname, "..", "inputs", dayModule + "-input-test.txt"),
+  ];
+} else {
+  inputFileCandidates = [
+    join(__dirname, "inputs", dayModule + "-input.txt"),
+    join(__dirname, "..", "inputs", dayModule + "-input.txt"),
+  ];
+}
 
 if (!fileExists(join(__dirname, dayModule + extname(__filename)))) {
   console.error(`Not implemented: ${dayModule} `);
